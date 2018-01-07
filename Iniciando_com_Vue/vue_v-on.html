@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Meu primeiro aplicativo Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <h2>Atalhos do Vue:</h2>
+    <h3>@ === " v-on: ", : === " v-bind: "</h3>
+  <div id="app">
+    {{v1_ck}}
+    <button v-on:click="onButton()">Button</button>
+    <hr />    
+
+    <select @change="onChange()" />
+      <option value="chicrete">chicle</option>      <option value="melão">melon</option>
+      <option value="melancia">watermelon</option>      
+      <option value="caju">caj</option>
+    </select><br>
+    {{v2_chg}}
+    <hr />
+    <textarea :rows="linhas"></textarea>
+    <textarea v-bind:rows="linhas"></textarea>    
+  </div>
+
+  <script>
+ 
+    var app = new Vue({
+      el: '#app',
+      data: {
+        v1_ck: null,
+        v2_chg: null,
+        linhas: 2,
+      },
+      methods: {
+        onButton: function () {
+          this.v1_ck = 'Clicou no botão',
+          this.linhas++;
+        },
+        onChange: function () {this.v2_chg = 'Mudou o select'},
+      }
+    });
+  </script>
+</body>
+</html>
